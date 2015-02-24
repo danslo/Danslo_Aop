@@ -1,0 +1,2 @@
+bootstrap.xml app/etc/modules/Danslo_Aop.xml
+code          app/code/community/Danslo/Aop

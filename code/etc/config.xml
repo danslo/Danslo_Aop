@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <global>
+        <models>
+            <aop>
+                <class>Danslo_Aop_Model</class>
+            </aop>
+        </models>
+        <events>
+            <resource_get_tablename>
+                <observers>
+                    <register_aop_autoloader>
+                        <class>Danslo_Aop_Model_Observer</class>
+                        <method>registerAutoloader</method>
+                    </register_aop_autoloader>
+                </observers>
+            </resource_get_tablename>
+
+            <!-- This is the earliest event we can get after the module configuration has been loaded. -->
+            <controller_front_init_before>
+                <observers>
+                    <initialize_aspect_kernel>
+                        <class>Danslo_Aop_Model_Observer</class>
+                        <method>initializeAspectKernel</method>
+                    </initialize_aspect_kernel>
+                </observers>
+            </controller_front_init_before>
+        </events>
+    </global>
+</config>

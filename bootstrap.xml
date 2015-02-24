@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Danslo_Aop>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Hackathon_PSR0Autoloader />
+            </depends>
+        </Danslo_Aop>
+    </modules>
+</config>

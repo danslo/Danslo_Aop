@@ -1,0 +1,20 @@
+{
+    "name": "danslo/aop",
+    "license": "MIT",
+    "type": "magento-module",
+    "description": "Bringing aspect oriented programming to Magento.",
+    "authors": [
+        {
+            "name": "Daniel Sloof"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Cotya/magento-composer-installer.git"
+        }
+    ]
+}
