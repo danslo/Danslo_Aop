@@ -9,12 +9,22 @@
         }
     ],
     "require": {
-        "magento-hackathon/magento-composer-installer": "*"
+        "magento-hackathon/magento-composer-installer": "*",
+        "firegento/psr0autoloader": "0.1.*",
+        "lisachenko/go-aop-php": "0.6.*"
     },
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/Cotya/magento-composer-installer.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/magento-hackathon/Magento-PSR-0-Autoloader"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/lisachenko/go-aop-php"
         }
     ]
 }
