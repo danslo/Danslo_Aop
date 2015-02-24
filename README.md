@@ -54,6 +54,7 @@ After installing this module using [composer](https://getcomposer.org/), let's c
 </config>
 ```
 
+``app/code/local/Danslo/TestModule/Aspect/Test.php``:
 ```php
 <?php
 
