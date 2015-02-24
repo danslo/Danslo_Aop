@@ -3,19 +3,7 @@
 use Go\Instrument\Transformer\FilterInjectorTransformer;
 
 class Danslo_Aop_Model_Autoloader
-    extends Varien_Autoload
 {
-
-    /**
-     * We don't care much for what our parent does, since it's already being
-     * done by the original autoloader.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        return;
-    }
 
     /**
      * Gets the class file from class name.
