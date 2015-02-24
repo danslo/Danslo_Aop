@@ -16,7 +16,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/Cotya/magento-composer-installer.git"
+            "url": "https://github.com/Cotya/magento-composer-installer"
         },
         {
             "type": "vcs",
