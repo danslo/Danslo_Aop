@@ -26,7 +26,7 @@ More information will follow...
 
 ## Example
 
-After installing this module using [composer](https://getcomposer.org/), let's create a sample module:
+After installing this module using [composer](https://getcomposer.org/) and [adding the composer autoloader](https://github.com/magento-hackathon/Magento-PSR-0-Autoloader#magento-composer-autoloader), let's create a sample module:
 
 ``app/etc/modules/Danslo_TestModule.xml``:
 ```xml
