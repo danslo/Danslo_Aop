@@ -22,8 +22,10 @@ class Danslo_Aop_Aspect_Kernel
     {
         $config = (array)Mage::getConfig()->getNode(self::CONFIG_PATH_AOP_ASPECTS);
         foreach ($config as $class) {
-            $aspect = new $class;
-            $container->registerAspect($aspect);
+            if ($class) {
+                $aspect = new $class;
+                $container->registerAspect($aspect);
+            }
         }
     }
 
