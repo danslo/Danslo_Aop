@@ -91,7 +91,7 @@ You will notice that we are intercepting every method call for the ``Mage_Cms_Bl
 ## Limitations / Future Work
 - When running in production mode (``Mage::getIsDeveloperMode()`` returns false), class files are currently stored in ``var/cache/aop``. Preferably we would add an additional Magento cache type and hook Go AOP! into it.
 - We currently only support method interception by registering aspects, but the world of AOP is so much more. We should probably implement some of those other features.
-- Since we extend from ``Varien_Autoload`` and rely on it to find classes for us, we currently can't rewrite controllers. This should be a very easy hurdle to overcome.
+- Since we mimic how ``Varien_Autoload`` finds classes, we currently can't rewrite controllers. This should be a very easy hurdle to overcome.
 - We definitely need some unit tests.
 
 ## License
