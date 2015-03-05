@@ -47,14 +47,14 @@ After installing this module using [composer](https://getcomposer.org/) and [add
 <config>
     <global>
         <aspects>
-            <!-- The only requirement is that 'test' is unique in your installation. -->
-            <test>Danslo_TestModule_Aspect_Test</test>
+            <!-- The only requirement is that 'example' is unique in your installation. -->
+            <example>Danslo_TestModule_Aspect_Example</example>
         </aspects>
     </global>
 </config>
 ```
 
-``app/code/local/Danslo/TestModule/Aspect/Test.php``:
+``app/code/local/Danslo/TestModule/Aspect/Example.php``:
 ```php
 <?php
 
@@ -62,7 +62,7 @@ use Go\Aop\Aspect;
 use Go\Lang\Annotation\Before;
 use Go\Aop\Intercept\MethodInvocation;
 
-class Danslo_TestModule_Aspect_Test
+class Danslo_TestModule_Aspect_Example
     implements Aspect
 {
 
@@ -88,11 +88,19 @@ Flush the cache and reload the homepage.
 
 You will notice that we are intercepting every method call for the ``Mage_Cms_Block_Page`` class without ever having modified it. Isn't that amazing?
 
+## Running Tests
+
+Because we rely on a specific autoloader setup and EcomDev_PHPUnit messes with that, we need our own bootstrapping for phpunit. The following should get you running:
+
+```bash
+ECOMDEV_PHPUNIT_CUSTOM_BOOTSTRAP=app/code/community/Danslo/Aop/bootstrap.php \
+    phpunit -c ./vendor/ecomdev/ecomdev_phpunit/phpunit.xml.dist
+```
+
 ## Limitations / Future Work
 - When running in production mode (``Mage::getIsDeveloperMode()`` returns false), class files are currently stored in ``var/cache/aop``. Preferably we would add an additional Magento cache type and hook Go AOP! into it.
 - We currently only support method interception by registering aspects, but the world of AOP is so much more. We should probably implement some of those other features.
 - Since we mimic how ``Varien_Autoload`` finds classes, we currently can't rewrite controllers. This should be a very easy hurdle to overcome.
-- We definitely need some unit tests.
 
 ## License
 

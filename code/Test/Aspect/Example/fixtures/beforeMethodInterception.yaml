@@ -1,0 +1,2 @@
+config:
+    global/aspects/example: Danslo_Aop_Aspect_Example

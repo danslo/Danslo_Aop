@@ -62,4 +62,14 @@
             </types>
         </cache>
     </global>
+    <phpunit>
+        <suite>
+            <groups>
+                <aspects>Aspect</aspects>
+            </groups>
+            <modules>
+                <Danslo_Aop />
+            </modules>
+        </suite>
+    </phpunit>
 </config>
