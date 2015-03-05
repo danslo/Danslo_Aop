@@ -10,8 +10,9 @@
     ],
     "require": {
         "magento-hackathon/magento-composer-installer": "*",
+        "ecomdev/ecomdev_phpunit": "*",
         "firegento/psr0autoloader": "0.1.*",
-        "lisachenko/go-aop-php": "0.6.*"
+        "lisachenko/go-aop-php": "0.6.*",
     },
     "repositories": [
         {
@@ -25,6 +26,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/lisachenko/go-aop-php"
+        },
+        {
+            "type": "composer",
+            "url": "http://packages.firegento.com"
         }
     ]
 }
