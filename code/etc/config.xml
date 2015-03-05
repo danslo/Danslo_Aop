@@ -6,7 +6,13 @@
                 <class>Danslo_Aop_Model</class>
             </aop>
         </models>
+        <helpers>
+            <aop>
+                <class>Danslo_Aop_Helper</class>
+            </aop>
+        </helpers>
         <events>
+            <!-- First event we can get to register an autoloader. -->
             <resource_get_tablename>
                 <observers>
                     <register_aop_autoloader>
@@ -25,6 +31,35 @@
                     </initialize_aspect_kernel>
                 </observers>
             </controller_front_init_before>
+
+            <!-- Individual cache clear. -->
+            <adminhtml_cache_refresh_type>
+                <observers>
+                    <clear_aop_cache>
+                        <class>Danslo_Aop_Model_Observer</class>
+                        <method>clearAopCache</method>
+                    </clear_aop_cache>
+                </observers>
+            </adminhtml_cache_refresh_type>
+
+            <!-- Full cache flush. -->
+            <adminhtml_cache_flush_system>
+                <observers>
+                    <clear_aop_cache>
+                        <class>Danslo_Aop_Model_Observer</class>
+                        <method>clearAopCache</method>
+                    </clear_aop_cache>
+                </observers>
+            </adminhtml_cache_flush_system>
         </events>
+        <cache>
+            <types>
+                <aop translate="label,description" module="aop">
+                    <label>AOP Cache</label>
+                    <description>Class cache for AOP and the associated metadata.</description>
+                    <tags>aop</tags>
+                </aop>
+            </types>
+        </cache>
     </global>
 </config>

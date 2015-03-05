@@ -46,12 +46,54 @@ class Danslo_Aop_Model_Observer
     {
         $aspectKernel = Danslo_Aop_Aspect_Kernel::getInstance();
         $aspectKernel->init(array(
-            'debug' => Mage::getIsDeveloperMode(),
-
-            /* TODO: Hopefully we can tie this into the mage caching system. */
-            'cacheDir' => Mage::getBaseDir('cache') . DS . self::AOP_CACHE_DIR,
+            'debug'    => Mage::getIsDeveloperMode(),
+            'cacheDir' => $this->_getCacheDir()
         ));
         self::$initialized = true;
+    }
+
+    /**
+     * Gets the AOP cache directory.
+     *
+     * @return string
+     */
+    protected function _getCacheDir()
+    {
+        return Mage::getBaseDir('cache') . DS . self::AOP_CACHE_DIR;
+    }
+
+    /**
+     * Clears the AOP cache.
+     *
+     * Our metadata will be cleared by the magento backend, we don't have to
+     * do it here.
+     *
+     * @param Varien_Event_Observer $observer
+     * @return void
+     */
+    public function clearAopCache($observer)
+    {
+        $type = $observer->getType();
+        if ($type && $type !== 'aop') {
+            return;
+        }
+
+        // Recursively clean up the cache directory.
+        $files = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator(
+                $this->_getCacheDir(),
+                RecursiveDirectoryIterator::SKIP_DOTS
+            ),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($files as $file) {
+            $path = $file->getRealPath();
+            if ($file->isDir()) {
+                rmdir($path);
+            } else {
+                unlink($path);
+            }
+        }
     }
 
 }
