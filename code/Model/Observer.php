@@ -10,6 +10,11 @@ class Danslo_Aop_Model_Observer
     const AOP_CACHE_DIR = 'aop';
 
     /**
+     * The AOP cache type.
+     */
+    const AOP_CACHE_TYPE = 'aop';
+
+    /**
      * Whether or not our autoloader has already been registered.
      *
      * @var boolean
@@ -44,9 +49,10 @@ class Danslo_Aop_Model_Observer
      */
     public function initializeAspectKernel()
     {
+        $cacheTypes = Mage::app()->useCache();
         $aspectKernel = Danslo_Aop_Aspect_Kernel::getInstance();
         $aspectKernel->init(array(
-            'debug'    => Mage::getIsDeveloperMode(),
+            'debug'    => Mage::getIsDeveloperMode() || empty($cacheTypes[self::AOP_CACHE_TYPE]),
             'cacheDir' => $this->_getCacheDir()
         ));
         self::$initialized = true;
@@ -74,7 +80,7 @@ class Danslo_Aop_Model_Observer
     public function clearAopCache($observer)
     {
         $type = $observer->getType();
-        if ($type && $type !== 'aop') {
+        if ($type && $type !== self::AOP_CACHE_TYPE) {
             return;
         }
 
