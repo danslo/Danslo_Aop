@@ -9,7 +9,7 @@ The solution? AOP!
 
 ## What is AOP?
 
-Paraphrasing from the [Go AOP!](https://github.com/lisachenko/go-aop-php) documentation:
+Paraphrasing from the [Go! AOP](https://github.com/lisachenko/go-aop-php) documentation:
 > AOP (Aspect-Oriented Programming) is an approach to cross-cutting concerns, where the concerns are designed and implemented in a "modular" way (that is, with appropriate encapsulation, lack of duplication, etc.), then integrated into all the relevant execution points in a succinct and robust way, e.g. through declarative or programmatic means.
 
 What it comes down to is that we can register aspects that do method interception through things called [Advices](http://go.aopphp.com/docs/pointcuts-and-advices/). These can go after, before, or around method calls. You can also sort multiple advices which is very useful for multiple modules wanting to modify the same methods. It's actually really similar to how Magento 2 does [plugins / interception](https://wiki.magento.com/display/MAGE2DOC/Using+Interception).
@@ -17,12 +17,12 @@ What it comes down to is that we can register aspects that do method interceptio
 More information will follow...
 
 ## How does it work?
-- We register the [Magento PSR-0 Autoloader](https://github.com/magento-hackathon/Magento-PSR-0-Autoloader) so that we can autoload files from the [Go AOP!](https://github.com/lisachenko/go-aop-php) framework.
-- We register an additional autoloader that passes class paths to Go AOP! (``FilterInjectorTransformer``).
+- We register the [Magento PSR-0 Autoloader](https://github.com/magento-hackathon/Magento-PSR-0-Autoloader) so that we can autoload files from the [Go! AOP](https://github.com/lisachenko/go-aop-php) framework.
+- We register an additional autoloader that passes class paths to Go! AOP (``FilterInjectorTransformer``).
 - We configure an observer that is triggered just after module configuration is loaded. It then;
     - Reads Magento configuration to find registered aspects.
     - Sets up an aspect kernel and registers those aspects.
-- Go AOP! takes care of the rest for us...
+- Go! AOP takes care of the rest for us...
 
 ## Example
 
