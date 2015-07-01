@@ -12,7 +12,7 @@
         "magento-hackathon/magento-composer-installer": "*",
         "ecomdev/ecomdev_phpunit": "*",
         "firegento/psr0autoloader": "0.1.*",
-        "lisachenko/go-aop-php": "0.6.*",
+        "lisachenko/go-aop-php": "1.0.0-alpha.1",
         "mikey179/vfsStream": "1.4.*"
     },
     "repositories": [
