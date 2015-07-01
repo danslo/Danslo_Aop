@@ -98,7 +98,6 @@ ECOMDEV_PHPUNIT_CUSTOM_BOOTSTRAP=app/code/community/Danslo/Aop/bootstrap.php \
 ```
 
 ## Limitations / Future Work
-- When running in production mode (``Mage::getIsDeveloperMode()`` returns false), all autoloaded class files are currently stored in ``var/cache/aop``. We would preferably only store files that actually need code generation. Some upstream changes are needed for this and discussion is happening [here](https://github.com/lisachenko/go-aop-php/issues/206).
 - We currently only support method interception by registering aspects, but the world of AOP is so much more. We should probably implement some of those other features.
 
 ## License
