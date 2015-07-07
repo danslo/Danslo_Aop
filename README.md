@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/danslo/Danslo_Aop.svg?branch=master)](https://travis-ci.org/danslo/Danslo_Aop)
+
 # Danslo_Aop
 
 When creating Magento modules, you will often want to change core behavior. Magento provides several ways to do this:
