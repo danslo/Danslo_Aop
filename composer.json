@@ -8,11 +8,12 @@
             "name": "Daniel Sloof"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "magento-hackathon/magento-composer-installer": "3.0.*",
         "ecomdev/ecomdev_phpunit": "0.3.*",
         "firegento/psr0autoloader": "0.1.*",
-        "lisachenko/go-aop-php": "1.0.*",
+        "goaop/framework": "1.0.*",
         "mikey179/vfsStream": "1.4.*"
     },
     "repositories": [
@@ -30,11 +31,14 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/lisachenko/go-aop-php"
+            "url": "https://github.com/goaop/framework.git"
         },
         {
             "type": "vcs",
             "url": "https://github.com/mikey179/vfsStream"
         }
-    ]
+    ],
+    "extra":{
+        "magento-root-dir": "."
+    }
 }
