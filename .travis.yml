@@ -1,0 +1,31 @@
+language: php
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - hhvm
+matrix:
+  allow_failures:
+  - php: 5.6
+  - php: hhvm
+env:
+  global:
+    - MAGENTO_DB_HOST=127.0.0.1
+    - MAGENTO_DB_USER=root
+    - MAGENTO_DB_NAME=aop
+    - MAGENTO_DB_PASS=
+  matrix:
+    - MAGENTO_VERSION=magento-ce-1.9.1.1
+before_script:
+  - mysql -uroot -e "drop database if exists aop; create database aop;"
+  - mysql -uroot -e "drop database if exists aop_test; create database aop_test;"
+script:
+  - ./run_tests.sh 
+after_script:
+  - rm -rf /tmp/aop.*
+notifications:
+  email:
+    recipients:
+      - notify@someone.com
+    on_success: always
+    on_failure: always
