@@ -47,8 +47,7 @@ modman link "${START_DIR}"
 composer install --no-interaction --prefer-dist -v || { echo "Running composer failed."; exit 1; }
 
 # Only run our own tests.
-sed -i -e s/true/false/g app/etc/modules/EcomDev_PHPUnitTest.xml
 n98-magerun-latest.phar cache:flush
 
 # Now actually run the tests.
-ECOMDEV_PHPUNIT_CUSTOM_BOOTSTRAP=app/code/community/Danslo/Aop/bootstrap.php phpunit
+phpunit
