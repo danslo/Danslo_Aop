@@ -14,7 +14,7 @@ class Danslo_Aop_Aspect_Example
      * @param MethodInvocation $invocation Invocation
      * @Before("execution(public Mage_Cms_Block_Page->*(*))")
      */
-    public function beforeMethodExecution(MethodInvocation $invocation)
+    public function storeInterceptedPublicMethods(MethodInvocation $invocation)
     {
         $obj = $invocation->getThis();
         $method = $invocation->getMethod()->getName();
