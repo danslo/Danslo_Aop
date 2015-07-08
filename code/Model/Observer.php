@@ -49,6 +49,9 @@ class Danslo_Aop_Model_Observer
      */
     public function initializeAspectKernel()
     {
+        if (self::$initialized) {
+            return;
+        }
         $cacheTypes = Mage::app()->useCache();
         $aspectKernel = Danslo_Aop_Aspect_Kernel::getInstance();
         $aspectKernel->init(array(
