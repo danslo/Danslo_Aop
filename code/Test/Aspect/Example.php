@@ -7,11 +7,9 @@ class Danslo_Aop_Test_Aspect_Example
     /**
      * Test method before interception.
      *
-     * @test
      * @loadFixture
-     * @doNotIndexAll
      */
-    public function beforeMethodInterception()
+    public function testBeforeMethodInterception()
     {
         // Create the intercepted block and call a method on it.
         $page = Mage::app()->getLayout()->createBlock('cms/page');
