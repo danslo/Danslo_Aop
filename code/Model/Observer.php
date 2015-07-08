@@ -58,7 +58,12 @@ class Danslo_Aop_Model_Observer
             'debug'        => Mage::getIsDeveloperMode() || empty($cacheTypes[self::AOP_CACHE_TYPE]),
             'cacheDir'     => $this->_getCacheDir(),
             'excludePaths' => [
-                Mage::getBaseDir() . DS . 'vendor' . DS . 'phpunit'
+                // Some of the PHPUnit files don't like being autoloaded by go-aop.
+                Mage::getBaseDir() . DS . 'vendor' . DS . 'phpunit',
+
+                // While this may seem counterintuitive, we don't need go-aop to do
+                // autoloading for us, as we register our own autoloader.
+                Mage::getBaseDir() . DS . 'app'
             ]
         ));
         self::$initialized = true;
