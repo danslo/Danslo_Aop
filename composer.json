@@ -12,7 +12,6 @@
     "require": {
         "magento-hackathon/magento-composer-installer": "3.0.*",
         "ecomdev/ecomdev_phpunit": "0.3.*",
-        "firegento/psr0autoloader": "0.1.*",
         "goaop/framework": "1.0.*",
         "mikey179/vfsStream": "1.4.*"
     },
@@ -24,10 +23,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/EcomDev/EcomDev_PHPUnit.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/magento-hackathon/Magento-PSR-0-Autoloader"
         },
         {
             "type": "vcs",

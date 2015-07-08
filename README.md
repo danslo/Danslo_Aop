@@ -19,7 +19,6 @@ What it comes down to is that we can register aspects that do method interceptio
 More information will follow...
 
 ## How does it work?
-- We register the [Magento PSR-0 Autoloader](https://github.com/magento-hackathon/Magento-PSR-0-Autoloader) so that we can autoload files from the [Go! AOP](https://github.com/lisachenko/go-aop-php) framework.
 - We register an additional autoloader that passes class paths to Go! AOP (``FilterInjectorTransformer``).
 - We configure an observer that is triggered just after module configuration is loaded. It then;
     - Reads Magento configuration to find registered aspects.
@@ -28,7 +27,7 @@ More information will follow...
 
 ## Example
 
-After installing this module using [composer](https://getcomposer.org/) and [adding the composer autoloader](https://github.com/magento-hackathon/Magento-PSR-0-Autoloader#magento-composer-autoloader), let's create a sample module:
+After installing this module using [composer](https://getcomposer.org/), let's create a sample module:
 
 ``app/etc/modules/Danslo_TestModule.xml``:
 ```xml

@@ -4,9 +4,6 @@
         <Danslo_Aop>
             <active>true</active>
             <codePool>community</codePool>
-            <depends>
-                <Hackathon_PSR0Autoloader />
-            </depends>
         </Danslo_Aop>
     </modules>
 </config>
