@@ -1,7 +1,7 @@
 <?php
 
 class Danslo_Aop_Test_Aspect_Example
-    extends EcomDev_PHPUnit_Test_Case
+    extends Danslo_Aop_Test_Case
 {
 
     /**

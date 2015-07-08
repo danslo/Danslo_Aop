@@ -33,7 +33,7 @@ class Danslo_Aop_Model_Observer
      *
      * @return void
      */
-    public function registerAutoloader()
+    public static function registerAutoloader()
     {
         if (self::$registered) {
             return;
@@ -47,7 +47,7 @@ class Danslo_Aop_Model_Observer
      *
      * @return void
      */
-    public function initializeAspectKernel()
+    public static function initializeAspectKernel()
     {
         if (self::$initialized) {
             return;
@@ -56,7 +56,7 @@ class Danslo_Aop_Model_Observer
         $aspectKernel = Danslo_Aop_Aspect_Kernel::getInstance();
         $aspectKernel->init(array(
             'debug'        => Mage::getIsDeveloperMode() || empty($cacheTypes[self::AOP_CACHE_TYPE]),
-            'cacheDir'     => $this->_getCacheDir(),
+            'cacheDir'     => self::_getCacheDir(),
             'excludePaths' => [
                 // Some of the PHPUnit files don't like being autoloaded by go-aop.
                 Mage::getBaseDir() . DS . 'vendor' . DS . 'phpunit',
@@ -74,7 +74,7 @@ class Danslo_Aop_Model_Observer
      *
      * @return string
      */
-    protected function _getCacheDir()
+    protected static function _getCacheDir()
     {
         return Mage::getBaseDir('cache') . DS . self::AOP_CACHE_DIR;
     }
@@ -88,7 +88,7 @@ class Danslo_Aop_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return void
      */
-    public function clearAopCache($observer)
+    public static function clearAopCache($observer)
     {
         $type = $observer->getType();
         if ($type && $type !== self::AOP_CACHE_TYPE) {
@@ -98,7 +98,7 @@ class Danslo_Aop_Model_Observer
         // Recursively clean up the cache directory.
         $files = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator(
-                $this->_getCacheDir(),
+                self::_getCacheDir(),
                 RecursiveDirectoryIterator::SKIP_DOTS
             ),
             RecursiveIteratorIterator::CHILD_FIRST

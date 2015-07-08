@@ -89,18 +89,6 @@ Flush the cache and reload the homepage.
 
 You will notice that we are intercepting every method call for the ``Mage_Cms_Block_Page`` class without ever having modified it. Isn't that amazing?
 
-## Running Tests
-
-Because we rely on a specific autoloader setup and EcomDev_PHPUnit messes with that, we need our own bootstrapping for phpunit. The following should get you running:
-
-```bash
-ECOMDEV_PHPUNIT_CUSTOM_BOOTSTRAP=app/code/community/Danslo/Aop/bootstrap.php \
-    phpunit -c ./vendor/ecomdev/ecomdev_phpunit/phpunit.xml.dist
-```
-
-## Limitations / Future Work
-- We currently only support method interception by registering aspects, but the world of AOP is so much more. We should probably implement some of those other features.
-
 ## License
 
 The MIT License (MIT)

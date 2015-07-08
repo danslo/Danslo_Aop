@@ -13,15 +13,24 @@ class Danslo_Aop_Aspect_Kernel
     const CONFIG_PATH_AOP_ASPECTS = 'global/aspects';
 
     /**
+     * Gets aspects from config.
+     *
+     * @return array
+     */
+    protected function _getAspects()
+    {
+        return (array)Mage::getConfig()->getNode(self::CONFIG_PATH_AOP_ASPECTS);
+    }
+
+    /**
      * Registers all aspects from magento configuration in the aspect kernel.
      *
      * @param AspectContainer $container
      * @return void
      */
-    protected function configureAop(AspectContainer $container)
+    public function configureAop(AspectContainer $container)
     {
-        $config = (array)Mage::getConfig()->getNode(self::CONFIG_PATH_AOP_ASPECTS);
-        foreach ($config as $class) {
+        foreach ($this->_getAspects() as $class) {
             if ($class) {
                 $aspect = new $class;
                 $container->registerAspect($aspect);
