@@ -52,8 +52,11 @@ class Danslo_Aop_Model_Observer
         $cacheTypes = Mage::app()->useCache();
         $aspectKernel = Danslo_Aop_Aspect_Kernel::getInstance();
         $aspectKernel->init(array(
-            'debug'    => Mage::getIsDeveloperMode() || empty($cacheTypes[self::AOP_CACHE_TYPE]),
-            'cacheDir' => $this->_getCacheDir()
+            'debug'        => Mage::getIsDeveloperMode() || empty($cacheTypes[self::AOP_CACHE_TYPE]),
+            'cacheDir'     => $this->_getCacheDir(),
+            'excludePaths' => [
+                Mage::getBaseDir() . DS . 'vendor' . DS . 'phpunit'
+            ]
         ));
         self::$initialized = true;
     }
