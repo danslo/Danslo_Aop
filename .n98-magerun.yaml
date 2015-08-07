@@ -6,4 +6,10 @@ commands:
         source:
           url: https://github.com/OpenMage/magento-mirror.git
           type: git
-          reference: 1.9.2.0
+          reference: 1.9.2.1
+      - name: magento-ce-1.9.2.1 
+        version: 1.9.2.1 
+        source:
+          url: https://github.com/OpenMage/magento-mirror.git
+          type: git
+          reference: 1.9.2.1
