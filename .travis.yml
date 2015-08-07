@@ -12,6 +12,7 @@ env:
   matrix:
     - MAGENTO_VERSION=magento-ce-1.9.1.1
     - MAGENTO_VERSION=magento-ce-1.9.2.0
+    - MAGENTO_VERSION=magento-ce-1.9.2.1
 before_script:
   - mysql -uroot -e "drop database if exists aop; create database aop;"
   - mysql -uroot -e "drop database if exists aop_test; create database aop_test;"
