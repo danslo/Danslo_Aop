@@ -10,7 +10,6 @@ env:
     - MAGENTO_DB_NAME=aop
     - MAGENTO_DB_PASS=
   matrix:
-    - MAGENTO_VERSION=magento-mirror-1.4.2.0
     - MAGENTO_VERSION=magento-mirror-1.5.1.0
     - MAGENTO_VERSION=magento-mirror-1.6.2.0
     - MAGENTO_VERSION=magento-mirror-1.7.0.2
