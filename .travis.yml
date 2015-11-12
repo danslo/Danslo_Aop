@@ -10,10 +10,12 @@ env:
     - MAGENTO_DB_NAME=aop
     - MAGENTO_DB_PASS=
   matrix:
-    - MAGENTO_VERSION=magento-ce-1.9.1.1
-    - MAGENTO_VERSION=magento-ce-1.9.2.0
-    - MAGENTO_VERSION=magento-ce-1.9.2.1
-    - MAGENTO_VERSION=magento-ce-1.9.2.2
+    - MAGENTO_VERSION=magento-mirror-1.4.2.0
+    - MAGENTO_VERSION=magento-mirror-1.5.1.0
+    - MAGENTO_VERSION=magento-mirror-1.6.2.0
+    - MAGENTO_VERSION=magento-mirror-1.7.0.2
+    - MAGENTO_VERSION=magento-mirror-1.8.1.0
+    - MAGENTO_VERSION=magento-mirror-1.9.2.2
 before_script:
   - mysql -uroot -e "drop database if exists aop; create database aop;"
   - mysql -uroot -e "drop database if exists aop_test; create database aop_test;"

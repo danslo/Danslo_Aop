@@ -24,7 +24,6 @@ chmod +x -R "$BUILD_DIR/bin"
 
 # Setup magento.
 INSTALL_DIR="${BUILD_DIR}/htdocs"
-cp .n98-magerun.yaml ~
 n98-magerun-latest.phar install \
       --dbHost="${MAGENTO_DB_HOST}" \
       --dbUser="${MAGENTO_DB_USER}" \
